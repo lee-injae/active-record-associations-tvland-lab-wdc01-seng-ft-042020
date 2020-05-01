@@ -8,21 +8,9 @@ class Actor < ActiveRecord::Base
     end
 
     def list_roles
-        self.characters.pluck(:name, :show_id)
+        # self.characters.map {|character| character.name + " - " + Show.find(character.show_id).name}
+          self.characters.map {|character| character.name + " - " + character.show.name  }
     end
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 end
 
